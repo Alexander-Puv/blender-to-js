@@ -4,7 +4,6 @@ import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls.js';
 import './style.css'
 
 function init() {
-  // Set up the scene, camera, and renderer
   const scene = new THREE.Scene();
   const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
   const renderer = new THREE.WebGLRenderer();
@@ -38,21 +37,8 @@ function init() {
   const objLoader = new OBJLoader()
   objLoader.setPath('./assets/')
   objLoader.load('xyz.obj', function(object) {
-    object.position.y -= 60;
     scene.add(object)
   })
-  // Load the OBJ file and add it to the scene
-/*   const objLoader = new OBJLoader();
-  let obj
-  objLoader.load(
-    './assets/xyz.obj',
-    function (object) {
-      // change sizes
-      object.scale.set(2, 2, 2);
-      obj = object
-      scene.add(object);
-    }
-  ); */
   
   function animate() {
     requestAnimationFrame(animate);
